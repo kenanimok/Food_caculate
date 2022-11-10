@@ -16,8 +16,8 @@ const CartPage = () => {
   return (
     <>
       <Layout>
-        {Cart.Items.map((item) => (
-          <Box>
+        {Cart.Items.map((item, index) => (
+          <Box key={index}>
             <img
               src={item.image}
               alt="image"

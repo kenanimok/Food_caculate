@@ -5,13 +5,15 @@ import styled from "styled-components";
 import { CartContext } from "../App";
 
 const Product = ({ id, title, image, price }) => {
+  console.log("id :>> ", id);
   const [Cart, setCart] = useContext(CartContext);
   //   console.log("Cart :>> ", Cart);
 
   const addCart = () => {
     const tmpsItems = Cart.Items;
+    console.log("tmpsItems :>> ", tmpsItems);
     let total = Cart.Total;
-
+    // console.log("total :>> ", total);
     const index = tmpsItems.findIndex((item) => item.id === id);
 
     console.log("index :>> ", index);
@@ -26,9 +28,8 @@ const Product = ({ id, title, image, price }) => {
         price,
       });
     }
-
     total += price;
-    total = Math.round((total + Number.EPSILON) * 100) / 100;
+
     const data = { Total: total, Items: tmpsItems };
     setCart(data);
     localStorage.setItem("Cart", JSON.stringify(data));
@@ -43,8 +44,11 @@ const Product = ({ id, title, image, price }) => {
           width={"270px"}
           style={{ padding: "10px" }}
         />
-        <p>{title}</p>
-        <p>{price}</p>
+        <Boxname>
+          <div>
+            {title} ${price}
+          </div>
+        </Boxname>
       </ContainerPd>
     </>
   );
@@ -56,4 +60,9 @@ const ContainerPd = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Boxname = styled.div`
+  display: flex;
+  margin-top: 5%;
 `;

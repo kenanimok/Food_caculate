@@ -3,10 +3,8 @@ import styled from "styled-components";
 import Product from "./products";
 import Boxfood from "./boxfood";
 import Header from "./header";
-import { Link, useNavigate } from "react-router-dom";
 import CartPage from "./CartPage";
 const Home = () => {
-  const navigate = useNavigate();
   const food = [
     {
       id: 1,
@@ -96,7 +94,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <Link to="/cart"> goto cart</Link> */}
       <Containner>
         <div>
           <Boxfood item={food} />
@@ -115,16 +112,9 @@ const Containner = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   height: 100vh;
-  /* padding: 10px; */
-`;
-
-const Layout = styled.div`
-  display: flex;
-  margin: 20px;
 `;
 
 const Caculate = styled.div`
-  /* background: red; */
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 `;
